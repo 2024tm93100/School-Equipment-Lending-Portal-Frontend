@@ -4,24 +4,12 @@ import api from '../api/axiosConfig';
  * Fetches the currently authenticated user's details.
  * @returns {Promise<object>} User data object.
  */
-// export const fetchUserDetails = async () => {
-//     try {
-//         const response = await api.get('/users/me');
-//         return response.data;
-//     } catch (error) {
-//         console.error("Error fetching user details:", error);
-//         throw error;
-//     }
-// };
 
 export const fetchUserDetails = async (token = null) => {
     try {
-        // Create a temporary config object for this specific request if a token is provided
         const config = {}; 
         
         if (token) {
-            // This bypasses the interceptor for this one specific call if needed, 
-            // or simply adds the header if the interceptor hasn't run yet.
             config.headers = {
                 Authorization: `Bearer ${token}`
             };
@@ -79,7 +67,7 @@ export const fetchUserRequests = async (role, userId) => {
         endpoint = `/requests/user/${userId}`; 
     } else if (role === 'STAFF' || role === 'ADMIN') {
         // Endpoint for pending requests requiring approval
-        endpoint = '/requests?status=PENDING';
+        endpoint = '/requests/user?status=PENDING';
     }
 
     try {

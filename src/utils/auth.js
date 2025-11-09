@@ -7,6 +7,7 @@ export const getUserRole = () => {
 export const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+    localStorage.removeItem("id");
 };
 
 export const isAuthenticated = () => {

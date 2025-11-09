@@ -34,8 +34,8 @@ const Dashboard = () => {
                 // 1. Fetch User Details (Required for all roles)
                 tempUserData = await fetchUserDetails();
                 setUserDetails(tempUserData);
-                const userId = tempUserData.id; // Assuming user details include ID
-
+                const userId = tempUserData.id; 
+                localStorage.setItem("id", userId);
                 // 2. Fetch Role-Specific Data
                 if (role === 'STUDENT') {
                     tempData.availableEquipment = await fetchAllEquipment();
@@ -112,8 +112,8 @@ const Dashboard = () => {
                 <h2>Student Portal 👋</h2>
                 <p>Welcome, **{userDetails.preferred_username}**. Quick links to manage your borrowings.</p>
                 
-                <h4 className="mt-4">Available Equipment ({availableEquipment?.length || 0})</h4>
-                <p>See the <a href="/equipment">full list of items</a> you can borrow.</p>
+                {/* <h4 className="mt-4">Available Equipment ({availableEquipment?.length || 0})</h4>
+                <p>See the <a href="/equipment">full list of items</a> you can borrow.</p> */}
 
                 <h4 className="mt-4">Your Recent Requests</h4>
                 <p>You have **{requestHistory?.length || 0}** total requests. <a href="/requests">View History</a>.</p>
