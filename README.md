@@ -1,5 +1,5 @@
 # Frontend Setup: Equipment Lending System (React/Vite)
-
+# DEMO : https://drive.google.com/file/d/1x4xG8BvtsjolBbkZZ4pTlSYr0i6jtTC4/view?usp=sharing
 This guide provides the necessary steps to set up and run the Equipment Lending System frontend application.
 
 ## 1. Prerequisites (Local Development)
